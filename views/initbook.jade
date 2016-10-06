@@ -1,0 +1,171 @@
+extends layout
+
+block precontenttitle
+  //- h2 Your entry cover
+  //- #{entry.localID}
+
+block precontent
+  #initform(class="coverBook")
+    //- place generated data with initialized entry data (time, name, initializer, etc.)
+    //- - for(var i = entrylist.length; i >= entrylist.length; i--);
+    em(class="localID")= currEntry.localID
+    p(class="entryname" class="cardprop")= currEntry.entryname
+    p(class="creatorname" class="cardprop")= currEntry.creatorname
+    p(class="initdate" class="cardprop")= currEntry.initdate
+
+  .backCover
+  //- place generated data with initialized entry data (time, name, initializer, etc.)
+
+block content
+  #initStructure
+    //- create a form in which people can add their URL, introduction, etc. 
+    //- this page is the environment of their book, it should feel as if they are scraping & placing stuff around
+    form(action="/initbook" method="post")
+      input(type="hidden" name="thisEntry" value="#{currEntry.localID}")
+      label(for="introduction") prologue/reference from the editor/
+      textarea(name="introduction" rows="4" maxlength="400" placeholder="Write introduction" required spellcheck="false")
+      #chapters
+        input(type="hidden" name="indexVal" value="5")
+        .chapterClass
+          select(class="chapterlevel" name="chapLVL1" required)
+            option(value="" disabled selected) type of chapter
+            option(value="1") Short Highlight
+            option(value="2") Long Read
+            option(value="3") Image sequence
+          p This entry will have the following content/
+          label(for="chapURL1") wikipedia.org/wiki/
+          input(type="text" class="ajax chapter" name="chapURL1" list="json-datalist" placeholder="Enter chapter URL" required spellcheck="false")
+        .chapterClass
+          select(class="chapterlevel" name="chapLVL2" required)
+            option(value="" disabled selected) type of chapter
+            option(value="1") Short Highlight
+            option(value="2") Long Read
+            option(value="3") Image sequence
+          p This entry will have the following content/
+          label(for="chapURL2") wikipedia.org/wiki/
+          input(type="text" class="ajax chapter" name="chapURL2" list="json-datalist" placeholder="Enter chapter URL" required spellcheck="false")
+        .chapterClass
+          select(class="chapterlevel" name="chapLVL3" required)
+            option(value="" disabled selected) type of chapter
+            option(value="1") Short Highlight
+            option(value="2") Long Read
+            option(value="3") Image sequence
+          p This entry will have the following content/
+          label(for="chapURL3") wikipedia.org/wiki/
+          input(type="text" class="ajax chapter" name="chapURL3" list="json-datalist" placeholder="Enter chapter URL" required spellcheck="false")
+        .chapterClass
+          select(class="chapterlevel" name="chapLVL4" required)
+            option(value="" disabled selected) type of chapter
+            option(value="1") Short Highlight
+            option(value="2") Long Read
+            option(value="3") Image sequence
+          p This entry will have the following content/
+          label(for="chapURL4") wikipedia.org/wiki/
+          input(type="text" class="ajax chapter" name="chapURL4" list="json-datalist" placeholder="Enter chapter URL" required spellcheck="false")
+        .chapterClass
+          select(class="chapterlevel" name="chapLVL5" required)
+            option(value="" disabled selected) type of chapter
+            option(value="1") Short Highlight
+            option(value="2") Long Read
+            option(value="3") Image sequence
+          p This entry will have the following content/
+          label(for="chapURL5") wikipedia.org/wiki/
+          input(type="text" class="ajax chapter" name="chapURL5" list="json-datalist" placeholder="Enter chapter URL" required spellcheck="false")
+          //- input(input type="text" id="ajax" list="json-datalist" placeholder="e.g. datalist")
+        datalist(id="json-datalist")
+
+        //- #chaptertemplate.chapterClass.hide
+        //-   label(for="chapURL") Paste the URL:
+        //-   input(disabled type="text" class="chapter" name="chapURL" list="sourcesList" placeholder="Enter chapter URL" required spellcheck="false")
+        //-   datalist(id="sourcesList")
+        //-     option(value="" disabled) All unique scraped sources in the repository:
+        //-     each entry, i in entrylist
+        //-       each chapter, i in entry.chapters
+        //-         option(value="#{chapter.url}")
+        //-   select(disabled class="typetext" name="chapTYP" required)
+        //-     option(value="" disabled selected) …
+        //-     option(value="Paratext") Paratext
+        //-     option(value="Paratext") Paratext
+        //-     option(value="Paratext") Paratext
+        //-     option(value="Paratext") Paratext
+        //-   select(disabled class="chapterlevel" name="chapLVL" required)
+        //-     option(value="" disabled selected) …
+        //-     option(value="1") Level 1
+        //-     option(value="2") Level 2
+        //-     option(value="3") Level 3
+        //-   label(for="chapTAG") Tags:
+        //-   textarea(class="chaptertags" name="chapTAG" rows="1" placeholder="Seperate tags with a comma" spellcheck="false")
+        //-   #removeChap --
+        //- #addMoreChap ++
+      .taggiving
+        label(for="tags") entry tags(seperated with comma)/
+        textarea(name="tags" rows="1" placeholder="Seperate tags with a comma" spellcheck="false")
+      .namegiving
+        label(for="entryname") The name of your entry:
+        input(type="text" id="entryname" name="entryname" placeholder="Enter entry name" required spellcheck="false")
+      input(type="submit" id="submit" class="bigSubmit" value="Submit")
+
+block localscript
+  script(type='text/javascript').
+    // Get the <datalist> and <input> elements.
+    var dataList = document.getElementById('json-datalist');
+    var input = document.getElementsByClassName('ajax');
+
+    // Create a new XMLHttpRequest.
+    var request = new XMLHttpRequest();
+
+    // Handle state changes for the request.
+    request.onreadystatechange = function(response) {
+      if (request.readyState === 4) {
+        if (request.status === 200) {
+          // Parse the JSON
+          var jsonOptions = JSON.parse(request.responseText);
+
+          // Loop over the JSON array.
+          jsonOptions.forEach(function(item) {
+            // Create a new <option> element.
+            var option = document.createElement('option');
+            // Set the value using the item in the JSON array.
+            option.value = item;
+            // Add the <option> element to the <datalist>.
+            dataList.appendChild(option);
+          });
+
+          // Update the placeholder text.
+          input.placeholder = "e.g. datalist";
+        } else {
+          // An error occured :(
+          input.placeholder = "Couldn't load datalist options :(";
+        }
+      }
+    };
+
+    // Update the placeholder text.
+    input.placeholder = "Loading options...";
+
+    // Set up and make the request.
+    request.open('GET', 'wikipedialist.json', true);
+    request.send();
+
+
+    $(document).ready(function(){
+    //-   var found = {};
+    //-   $('#sourcesList option').each(function(){
+    //-       var $this = $(this);
+    //-       if(found[$this.attr('value')]){
+    //-            $this.remove();   
+    //-       }
+    //-       else{
+    //-            found[$this.attr('value')] = true;   
+    //-       }
+    //-   });
+
+      var activeFish = $('#fishmenuwrap').find('[data-localid="#{currEntry.localID}"]');
+      activeFish.addClass('currselected').end();
+
+      setTimeout(function(){
+        //- $("#fishmenuwrap").scrollTop(100);
+      }, 0);
+
+    });
+

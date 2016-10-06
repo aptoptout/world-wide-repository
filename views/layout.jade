@@ -1,0 +1,104 @@
+doctype html
+html(lang="en")
+  head
+    title world wide REpository
+    meta(charset="utf-8")
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    block customStyles
+  body
+    #headingwrap
+      #headinggrid
+      #headingtitle
+        h1 
+          a(href="/") :// <br /> world wide repository/
+        p(class="reposiintro") an infinite repository of books, containing all the possible books and booklets made out of the World Wide Web. Books are called entries in this repository which uses these entries to designate scraped information from all around the Web. These entries are used as ways to freeze the contingent information space of the Web. The greatest percentage of those possible entries a filled with nonesense, and non-readable information. But those that hold meaning are still in the uncountable.
+        br
+        p(class="reposiintro") The World Wide Repository inherits most of its laws and behaviours from its dependencies —the web— if not all. Its only goal is to create a structured body of HTML pages, indexed. Using the World Wide Repository enables a different approach to browsing the way of interacting with the infinte amount of information that is stored on all the servers that are accessible via the Web.
+        br
+        p(class="reposiintro") The entries of the Repository have no author in the original sense. As the information is always scraped and appropriated the entries are initiated as functions to process. Therefor the maker of the entry is called an initiator(a person who initiates). As an initiator the role also changes from that of an author. The initiator is like a curator and editor as the main job at hand is to choose where to initiate the tool.
+        br
+        p(class="reposiintro") The Repository uses all of the functionality the Web has: meta-data, markup, stylesheets and DOM* manipulation. At its core it is a scraper tool that, just like us in a thousand fold, browses the Web infinitely. Scanning and hovering from node to node.
+        br
+        p(class="reposiintro") It allows you, the user/ reader/ seeker, to give the repository specific queries and directions for your entries.
+    #bodywrap
+      #smallwrap
+        #absolutesmallwrap
+          block precontenttitle
+          #smallcontent
+            block precontent
+      #mainwrap
+        #maincontent
+          block content
+    #navwrap
+      #lookWindow
+      #fishmenuwrap
+        each entry, i in entrylist
+          - var chapterNum = entry.chapters;
+          - var extrChapNum = chapterNum.length;
+          a(class="indexcard" href="/initbook/#{entry.localID}" data-localid="#{entry.localID}")
+            em(id="entryname")= entry.entryname
+            p(id="length" data-locID="#{entry.localID}")= entry.localID
+            p(id="creatorname" class="cardprop")= entry.creatorname
+            p(id="bar" class="cardprop")
+            p(id="chapterNum" class="cardprop")= 'Chapters: ' + extrChapNum
+            p(id="initdate" class="cardprop")= entry.initdate
+            //- each tag, i in entry.tags
+            //-   span(class="spantags")= tag
+        - var n = 1
+        while n < 300
+          - var newNumber = entrylist.length + n
+          a(class="indexcard nonclickable" href="/" data-localid="")
+            em(id="entryname")
+            p(id="length" data-locID="")= 'n'+newNumber
+            p(id="creatorname" class="cardprop")
+            p(id="bar" class="cardprop")
+            p(id="chapterNum" class="cardprop")
+            p(id="initdate" class="cardprop")
+          - n++
+        a(class="indexcard")
+          em(id="entryname") …
+          p(id="length") N…
+        a(class="indexcard")
+          em(id="entryname") …
+          p(id="length") N…
+        a(class="indexcard")
+          em(id="entryname") …
+          p(id="length") N…
+        a(class="indexcard")
+          em(id="entryname") …
+          p(id="length") N…
+
+      //- #metamenuwrap
+      //-   div(id="tags" class="togglenav")
+      //-     h3 Entry Numbers
+      //-     div(class="metatarget tags")
+      //-       each entry, i in entrylist
+      //-         span(class="entryNummeta metatoggle" data="#{entry.localID}")= entry.localID
+      //-   div(id="tags" class="togglenav")
+      //-     h3 Tags
+      //-     div(class="metatarget tags")
+      //-       each entry, i in entrylist
+      //-         each tag, i in entry.tags
+      //-           span(class="tagsmeta metatoggle" data="#{tag}")= tag
+      //-   div(id="source" class="togglenav")
+      //-     h3 Source
+      //-     div(class="metatarget source")
+      //-       each entry, i in entrylist
+      //-         each chapter, i in entry.chapters
+      //-           span(class="sourcemeta metatoggle")= chapter.url
+      //-   div(id="texttype" class="togglenav")
+      //-     h3 Text types
+      //-     div(class="metatarget texttype")
+      //-       span(class="texttypemeta metatoggle") preview
+      //-   div(id="contenttype" class="togglenav")
+      //-     h3 Content types
+      //-     div(class="metatarget contenttype")
+      //-       span(class="contenttypemeta metatoggle") preview
+    //- script(src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js")
+
+    script(class="h2p-include")
+      include ./../public/javascripts/jquery.min.js
+    block localscript
+    script
+      include ./../public/javascripts/script.js
+

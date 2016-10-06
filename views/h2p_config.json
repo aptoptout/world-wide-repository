@@ -1,0 +1,30 @@
+{
+    "pages": {
+        "count": 100,
+        "paper-width":      "210mm",
+        "paper-height":     "297mm",
+        "crop-size":        "0mm",
+        "bleed":            "0mm",
+        "margin-inside":    "20mm",
+        "margin-outside":   "5mm",
+        "margin-bottom":    "5mm",
+        "margin-top":       "5mm",
+        "header-height":    "15mm",
+        "footer-height":    "20mm",
+        "header-text":      "''",
+        "footer-text":      "''",
+        "mirror":           "false"
+    },
+
+    "styles": {
+        "print":        "/stylesheets/print.css",
+        "ui-override":  "/stylesheets/h2p-ui.css"
+    },
+
+    "scripts": [
+            "/javascripts/jquery.min.js",
+            "/javascripts/print.js"
+    ],
+
+    "route": "#print"
+}

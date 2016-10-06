@@ -1,0 +1,37 @@
+extends layout
+
+block customStyles
+  link(rel="stylesheet" href="/osp.tools.html2print/dist/css/gui.css" media="screen")
+
+block content
+  #master-page.paper
+    .crops
+      .crop-top-left
+        span.bleed
+      .crop-top-right
+        span.bleed
+      .crop-bottom-right
+        span.bleed
+      .crop-bottom-left
+        span.bleed
+
+    .page
+      .header
+      .body
+        .aPage
+          #leftcolumn.column
+          #rightcolumn.column
+      .footer
+
+  #loading-spinner
+    .sk-circle Loading…
+
+  #toolbar
+    label(for="zoom") zoom
+    input(name="zoom" value="100" type="number" min="25" max="1600" step="25")
+    .separator
+    button(id="print") print
+
+block localscript
+  script(type="text/javascript" src="/osp.tools.html2print/dist/js/html2print.js") 
+    
