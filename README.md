@@ -1,9 +1,7 @@
 # World Wide Repository
-###### Currently a working name
-###### Alpha – 2016
-###### Beta – 2018
+###### Beta, 2018 [alpha 2016]
 
-#### Giving users/ readers/ researchers new posibilities in using and appropriating the web.
+**Giving users/ readers/ researchers new posibilities in using and appropriating the web.**
 
 ---
 
