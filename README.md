@@ -1,15 +1,13 @@
 # World Wide Repository
 ###### Currently a working name
+###### Alpha – 2016
+###### Beta – 2018
 
-*Alpha released in 2016*
-*Beta development started in 2018*
-
-
-Giving users/ readers/ researchers new posibilities in using and appropriating the web.
+#### Giving users/ readers/ researchers new posibilities in using and appropriating the web.
 
 ---
 
-## Conceptual approach behind WWR
+### Concept behind WWR
 
 An infinite repository of books, containing all the possible books and booklets made out of the World Wide Web. Books are called entries in this repository which uses these entries to designate scraped information from all around the Web. These entries are used as ways to freeze the contingent information space of the Web. The greatest percentage of those possible entries a filled with nonesense, and non-readable information. But those that hold meaning are still in the uncountable.
 
