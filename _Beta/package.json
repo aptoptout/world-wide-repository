@@ -1,0 +1,25 @@
+{
+  "name": "world-wide-repository",
+  "version": "0.1.0",
+  "description": "Giving users/ readers/ researchers new posibilities in using and appropriating the web.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aptoptout/world-wide-repository.git"
+  },
+  "keywords": [
+    "book",
+    "semantic",
+    "information",
+    "pipelines"
+  ],
+  "author": "Apt Opt Out",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aptoptout/world-wide-repository/issues"
+  },
+  "homepage": "https://github.com/aptoptout/world-wide-repository#readme"
+}
