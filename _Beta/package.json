@@ -10,22 +10,13 @@
     "type": "git",
     "url": "git+https://github.com/aptoptout/world-wide-repository.git"
   },
-  "keywords": [
-    "book",
-    "semantic",
-    "information",
-    "pipelines"
-  ],
   "author": "Apt Opt Out",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/aptoptout/world-wide-repository/issues"
   },
+  "homepage": "https://github.com/aptoptout/world-wide-repository#readme",
   "dependencies": {
     "express": "^4.16.3"
-  },
-  "homepage": "https://github.com/aptoptout/world-wide-repository#readme",
-  "devDependencies": {
-    "webpack": "^4.12.0"
   }
 }
