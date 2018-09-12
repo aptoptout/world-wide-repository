@@ -1,0 +1,19 @@
+User {
+  emailAdress : "",
+  username : "",
+  password : "",
+  entries : []
+}
+
+entry {
+  name : "",
+  initiator : [],
+  chapters : [
+    chapter : {
+      title : "",
+      content : []
+    }],
+  summary : "",
+  pretext : "",
+  index : true
+}

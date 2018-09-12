@@ -1,0 +1,4 @@
+What should my scraping function do well?
+
+  -> Feed in URLs
+  -> Check type of data/content
