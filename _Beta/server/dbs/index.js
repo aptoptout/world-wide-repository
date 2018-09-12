@@ -7,10 +7,10 @@ exports._connect = function(url, done) {
 
   if(state.db) return done();
 
-  MongoClient.connect(url, {user: 'aptoptout', password:'worldwiderepository-Macbook2014'}, function(err, client) {
+  MongoClient.connect(url, {user: my_username, password:my_password}, function(err, client) {
     
     if(err) return done(err);
-    state.db = client.db('world-wide-repository');
+    state.db = client.db(my_database);
 
     done();
 
