@@ -1,5 +1,6 @@
 _Alpha/**
 _Beta/node_modules/**
+_Beta/hidden/**
 
 ### macOS related files ###
 *.DS_Store
