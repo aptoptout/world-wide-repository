@@ -6,11 +6,11 @@ let state = {
 exports._connect = function(url, done) {
 
   if(state.db) return done();
-
-  MongoClient.connect(url, {user: my_username, password:my_password}, function(err, client) {
+  
+  MongoClient.connect(url, function(err, client) {
     
     if(err) return done(err);
-    state.db = client.db(my_database);
+    state.db = client.db("worldwiderepository");
 
     done();
 

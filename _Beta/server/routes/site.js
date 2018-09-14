@@ -15,8 +15,8 @@ router.get('/', function(req, res) {
         res.error(err);
 
       } else {
-
         res.render('index', { dbColEntries: docs });
+        console.log(docs);
 
       }
   });

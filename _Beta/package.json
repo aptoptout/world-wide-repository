@@ -18,7 +18,7 @@
   "homepage": "https://github.com/aptoptout/world-wide-repository#readme",
   "dependencies": {
     "express": "^4.16.3",
-    "mongodb": "^3.0.10",
+    "mongodb": "3.6.6",
     "pug": "^2.0.3"
   }
 }

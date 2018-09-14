@@ -1,7 +1,7 @@
 # World Wide Repository
 ###### Beta, 2018 [alpha 2016]
 
-**Giving users/ readers/ researchers new possibilities in using and appropriating the web.**
+**Creating new possibilities and affordances in reading, writing and appropriating content.**
 
 ---
 

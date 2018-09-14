@@ -1,9 +1,8 @@
 const path = require('path')
-const express = require('express');
+const express = require('express'); 
+const WWR_db_URI = require('./hidden/myCreds.js');
 const app = express();
 const port = 3000;
-const WWR_db_URI = "mongodb://ds161740.mlab.com:61740/world-wide-repository";
-
 
 // Routing
 // General
@@ -20,7 +19,7 @@ app.use('/', site);
 // Initialize the application once database connections are ready.
 db._connect(WWR_db_URI, function(err) {
   if(err) {
-    console.log('Unable to connect with WWR mLab database.');
+    console.log('Unable to connect with WWR database.', err);
     process.exit(1);
   } else {
     app.listen(port, function() {
