@@ -1,5 +1,5 @@
-const path = require('path')
-const express = require('express'); 
+const path = require('path');
+const express = require('express');
 const WWR_db_URI = require('./hidden/myCreds.js');
 const app = express();
 const port = 3000;
@@ -17,13 +17,14 @@ app.use('/', site);
 
 // Port
 // Initialize the application once database connections are ready.
-db._connect(WWR_db_URI, function(err) {
-  if(err) {
-    console.log('Unable to connect with WWR database.', err);
-    process.exit(1);
-  } else {
-    app.listen(port, function() {
-      console.log(`Listening on port ${port}`);
-    });
-  }
+db.connect(WWR_db_URI, function (err) {
+    "use strict";
+    if (err) {
+        console.log('Unable to connect with WWR database.', err);
+        process.exit(1);
+    } else {
+        app.listen(port, function () {
+            console.log(`Listening on port ${port}`);
+        });
+    }
 });

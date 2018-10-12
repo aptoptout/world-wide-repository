@@ -1,23 +1,29 @@
 const MongoClient = require('mongodb').MongoClient;
 let state = {
-  db: null,
+    db: null
 };
 
-exports._connect = function(url, done) {
+exports.connect = function (url, done) {
+    "use strict";
+    if (state.db) {
+        return done();
+    }
 
-  if(state.db) return done();
-  
-  MongoClient.connect(url, function(err, client) {
-    
-    if(err) return done(err);
-    state.db = client.db("worldwiderepository");
+    MongoClient.connect(url, function (err, client) {
 
-    done();
+        if (err) {
+            return done(err);
+        }
 
-  });
+        state.db = client.db("worldwiderepository");
+
+        done();
+
+    });
 
 };
 
-exports._get = function() {
-  return state.db;
+exports.get = function () {
+    "use strict";
+    return state.db;
 };
