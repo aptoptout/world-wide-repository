@@ -5,7 +5,10 @@ const middleware = require('../middleware/middleware.js');
 const entry_model = require('../models/entry.js');
 
 // Home page route
-router.get('/', middleware.get_entry(db, entry_model, '5b9b49a61c9d44000021c41c', 'index'));
+router.get('/', middleware.get_entry(db, entry_model, '0', 'index'));
+// router.get('/', function (req, res) {
+//   res.send('GET request to the homepage')
+// });
 
 module.exports = router;
 
